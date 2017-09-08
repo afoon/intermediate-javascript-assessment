@@ -44,7 +44,19 @@ function noWeakLink() {
     url: '/api/users'
   })
   // CODE HERE...
-
+.then(function(response){
+  setTimeout(function(){
+    firstUser = response.firstUser;
+  console.log(firstUser);
+},1)
+return firstUser;})
+.then(function(response){
+  setTimeout(function(){
+    thirdUser = response.thirdUser;
+    console.log(thirdUser);
+  },1)
+  return thirdUser;
+},1)
 }
 
 
@@ -75,7 +87,7 @@ function large() {
 }
 // CODE HERE...
 
-
+var boundToElephant = large.bind(elephant);
 
 // *************
 // * PROBLEM 3 *
@@ -104,7 +116,11 @@ function large() {
 
 // CODE HERE...
 
-
+function accountingOffice (assets){
+return function(liabilities){
+return assets +liabilities;
+}
+}
 
 // *************
 // * PROBLEM 5 *

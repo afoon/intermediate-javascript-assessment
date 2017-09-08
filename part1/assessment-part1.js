@@ -43,27 +43,27 @@ function daBears(){
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale1 = ["papaBear", "mamaBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale2 = ["goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale3 = [ "mamaBear"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale4 = ["daBears", "papaBear", "mamaBear", "goldilocks"];
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 
 
 // *************
@@ -72,7 +72,17 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 // Write a constructor function called Vehicle.  Vehicle should have a property
 // called gasRemaining that is equal to 100.
+function Vehicle(name){
+  this.name = name;
+  this.gasRemaining = 100;
+ 
 
+
+}
+Vehicle.prototype.drive = function(){
+  this.gasRemaining= this.gasRemaining - 25;
+  return this.gasRemaining;
+}
 // Next, assign a function called drive to the Vehicle prototype.  When invoked,
 // drive should subtract 25 from the gasRemaining property of any Vehicle your constructor
 // function creates.
@@ -80,8 +90,13 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // Create 2 new Vehicles with the constructor function you made: one called "charger",
 // the other called "mustang".  Using implicit context, invoke the drive method on
 // "charger" once, and invoke it twice on "mustang".
-
+var charger = new Vehicle('charger');
+var mustang = new Vehicle('mustang');
 // CODE HERE...
+
+mustang.drive();
+mustang.drive();
+charger.drive();
 
 
 
@@ -99,6 +114,19 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 //  where the first letter of every word is capitalized, while reverting the remainder
 // of each word to lowercase.
 
+String.prototype.grammarPolice = function(){
+  var newString = [];
+  string = string.toLowerCase().split("");
+  newString.push(string[0].toUpperCase());
+    for (var i = 1; i < string.length; i++){
+      if (string[i-1]===" "){
+        newString.push(string[i].toUpperCase());
+      }
+      else {
+        newString.push(string[i]);
+      }
+    } return newString.join("")
+  }
 // For example: "OH HELLO THERE" becomes "Oh Hello There"
 
 // Your method may be passed punctuation, numbers or other non-letter characters
@@ -118,7 +146,15 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // Write a function called valueType that has two parameters. Jasmine will pass
 // arguments into your function through the parameters.  Your function will need
 // to compare the passed-in values and return a string based on that comparison, as follows:
-
+function valueType (par1,par2){
+  if ( par1 === par2){
+    return "Exactly the same";
+  }
+  else if (par1 == par2){
+    return "Same value, different types"
+  }
+  else {return "Different values"}
+}
 // If the arguments are of the same type and have the same value, return "Exactly the same"
 
 // If the arguments have the same value but are of different types, return "Same value, different types"
@@ -132,6 +168,11 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // *************
 // * PROBLEM 5 *
 // *************
+
+function promiseCatcher (param){
+  
+}
+  
 
 // Write a function called "promiseCatcher" with a single parameter.
 // Jasmine will pass a promise into your function through that parameter.
